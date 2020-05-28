@@ -15,11 +15,6 @@ variable "project" {
   type        = string
 }
 
-variable "namespace" {
-  description = "Kubernetes namespace name in cluster used to store secret with IAP client credentials"
-  type        = string
-}
-
 variable "cluster_endpoint" {
   description = "Kubernetes endpoint of cluster used to store secret with IAP client credentials"
   type        = string
@@ -59,8 +54,8 @@ variable "allowed_users" {
 variable "iap_clients" {
   description = "Map containing IAP client names as keys and Kubernetes cluster stage names as values"
   type        = map
-  default = {
-    hejda_iap_test = "stage"
-    hejda_iap_taky = "stage"
+  iap_clients = {
+    iap-test       = "default"
+    iap-test-stage = "stage"
   }
 }

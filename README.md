@@ -9,8 +9,7 @@ This is also reason why we set `disable_on_destroy = false` on IAP API object (`
 
 ```hcl
 module "iap" {
-  source                 = "git::ssh://git@gitlab.ack.ee/Infra/tf-module/iap.git?ref=v6.4.0"
-  namespace              = var.namespace
+  source                 = "git::ssh://git@gitlab.ack.ee/Infra/tf-module/iap.git?ref=v1.0.0"
   project                = var.project
   region                 = var.region
   location               = var.zone
@@ -64,9 +63,8 @@ pre-commit install
 | cluster\_pass | Password used to connect to Kubernetes cluster to store secret with IAP client credentials | `string` | n/a | yes |
 | cluster\_user | User used to connect to Kubernetes cluster to store secret with IAP client credentials | `string` | n/a | yes |
 | iap\_brand\_name | Name used in OAuth consent screen - will be shown to users when logging in | `string` | n/a | yes |
-| iap\_clients | Map containing IAP client names as keys and Kubernetes cluster stage names as values | `map` | <pre>{<br>  "hejda_iap_taky": "stage",<br>  "hejda_iap_test": "stage"<br>}</pre> | no |
+| iap\_clients | Map containing IAP client names as keys and Kubernetes cluster stage names as values | `map` | n/a | yes |
 | location | Default GCP zone | `string` | `"europe-west3-c"` | no |
-| namespace | Kubernetes namespace name in cluster used to store secret with IAP client credentials | `string` | n/a | yes |
 | project | GCP project name | `string` | n/a | yes |
 | region | GCP region | `string` | `"europe-west3"` | no |
 | support\_email | Support email used in OAuth consent screen - must be personal email or Google Group, that you are Owner of | `string` | n/a | yes |
