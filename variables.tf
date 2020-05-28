@@ -54,7 +54,7 @@ variable "allowed_users" {
 variable "iap_clients" {
   description = "Map containing IAP client names as keys and Kubernetes cluster stage names as values"
   type        = map
-  iap_clients = {
+  default = {
     iap-test       = "default"
     iap-test-stage = "stage"
   }

@@ -63,7 +63,7 @@ pre-commit install
 | cluster\_pass | Password used to connect to Kubernetes cluster to store secret with IAP client credentials | `string` | n/a | yes |
 | cluster\_user | User used to connect to Kubernetes cluster to store secret with IAP client credentials | `string` | n/a | yes |
 | iap\_brand\_name | Name used in OAuth consent screen - will be shown to users when logging in | `string` | n/a | yes |
-| iap\_clients | Map containing IAP client names as keys and Kubernetes cluster stage names as values | `map` | n/a | yes |
+| iap\_clients | Map containing IAP client names as keys and Kubernetes cluster stage names as values | `map` | <pre>{<br>  "iap-test": "default",<br>  "iap-test-stage": "stage"<br>}</pre> | no |
 | location | Default GCP zone | `string` | `"europe-west3-c"` | no |
 | project | GCP project name | `string` | n/a | yes |
 | region | GCP region | `string` | `"europe-west3"` | no |
