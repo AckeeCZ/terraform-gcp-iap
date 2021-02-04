@@ -20,18 +20,13 @@ variable "cluster_endpoint" {
   type        = string
 }
 
+variable "cluster_token" {
+  description = "Cluster master token, keep always secret!"
+  type        = string
+}
+
 variable "cluster_ca_certificate" {
   description = "CA certificate used to connect to Kubernetes cluster to store secret with IAP client credentials"
-  type        = string
-}
-
-variable "cluster_user" {
-  description = "User used to connect to Kubernetes cluster to store secret with IAP client credentials"
-  type        = string
-}
-
-variable "cluster_pass" {
-  description = "Password used to connect to Kubernetes cluster to store secret with IAP client credentials"
   type        = string
 }
 
