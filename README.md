@@ -45,7 +45,6 @@ pre-commit install
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 1.13.0 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.1.0 |
 
 ## Providers
@@ -53,7 +52,7 @@ pre-commit install
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | n/a |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | ~> 1.13.0 ~> 2.1.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | ~> 2.1.0 |
 
 ## Modules
 
