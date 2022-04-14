@@ -1,34 +1,28 @@
+locals {
+  source_project = var.source_project != "" ? var.source_project : var.project
+}
+
+data "google_project" "source_project" {
+  project_id = local.source_project
+}
+
 resource "google_project_service" "iap" {
-  project            = var.project
+  project            = local.source_project
   service            = "iap.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_iap_brand" "project_brand" {
+  project           = data.google_project.source_project.number
   support_email     = var.support_email
   application_title = var.iap_brand_name
-  project           = google_project_service.iap.project
 }
 
 resource "google_iap_client" "iap_clients" {
-  for_each = var.iap_clients
+  for_each = toset(var.iap_clients)
 
   display_name = each.key
   brand        = google_iap_brand.project_brand.name
-}
-
-resource "kubernetes_secret" "iap" {
-  for_each = google_iap_client.iap_clients
-
-  metadata {
-    name      = each.value.display_name
-    namespace = lookup(var.iap_clients, each.value.display_name)
-  }
-
-  data = {
-    client_id     = each.value.client_id
-    client_secret = each.value.secret
-  }
 }
 
 data "google_iam_policy" "iam_allowed_users" {

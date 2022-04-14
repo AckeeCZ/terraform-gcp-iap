@@ -15,19 +15,10 @@ variable "project" {
   type        = string
 }
 
-variable "cluster_endpoint" {
-  description = "Kubernetes endpoint of cluster used to store secret with IAP client credentials"
+variable "source_project" {
+  description = "In case your GCP project already use IAP setup somewhere, create new one and set it in this variable"
   type        = string
-}
-
-variable "cluster_token" {
-  description = "Cluster master token, keep always secret!"
-  type        = string
-}
-
-variable "cluster_ca_certificate" {
-  description = "CA certificate used to connect to Kubernetes cluster to store secret with IAP client credentials"
-  type        = string
+  default     = null
 }
 
 variable "iap_brand_name" {
@@ -47,10 +38,7 @@ variable "allowed_users" {
 }
 
 variable "iap_clients" {
-  description = "Map containing IAP client names as keys and Kubernetes cluster stage names as values"
-  type        = map
-  default = {
-    iap-test       = "default"
-    iap-test-stage = "stage"
-  }
+  description = "List containing IAP client names"
+  type        = list(string)
+  default     = []
 }
